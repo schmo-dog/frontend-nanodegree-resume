@@ -2,59 +2,111 @@
 This is empty on purpose! Your code to build the resume will go here.
  */
 
+// page variables
 var header = "#header";
-var main =  "#main";
+var main = "#main";
 var footerContacts = "#footerContacts";
 
-// bio section
+// bio object
 var bio = {
-	"name" : "Aaron Schmohe",
-	"role" : "Web Developer",
-	"contacts" : {
-		"mobile" : "720.934.8439",
-		"email" : "aaron.schmohe@gmail.com",
-		"github" : "schmo-dog",
-		"twitter" : "@AaronSchmohe",
-		"location" : "Denver"
-	},
-"WelcomeMessage" : "lorem ipsum emet etc etc.",
-	skills : ["CSS", "HTML5", "Adobe CC", "JS", "Jquery"],
-	"bioPic" : "images/aaron.jpg"
-};
+    "name": "Aaron Schmohe",
+    "role": "Web Developer",
+    "WelcomeMessage": "lorem ipsum emet etc etc.",
+    "contacts": {
+        "mobile": "720.934.8439",
+        "email": "aaron.schmohe@gmail.com",
+        "github": "schmo-dog",
+        "twitter": "@AaronSchmohe",
+        "location": "Denver"
+    },
+    "skills": ["CSS", "HTML5", "Adobe CC", "Web Design", "Jquery"]
+}
 
-// work section
-var work = {};
-work.position = "UI Web Developer";
-work.employer = "Healthgrades";
-work.years = 1;
+// work object
+var work = {
+    "jobs": [{
+            "employer": "Healthgrades",
+            "title": "UI Developer",
+            "location": "Denver",
+            "dates": "2014 - 2014",
+            "description": "Bacon ipsum dolor amet rump andouille strip steak pork loin,
+            frankfurter ground round picanha tail.Tail rump ham hock bacon.Porchetta
+            turkey brisket,
+            ground round bacon chicken venison swine prosciutto.
+            "
+        },
 
-var formattedPostion = HTMLworkTitle.replace("%data%", work.position);
+        {
+            "employer": "Cahoots",
+            "title": "Web Developer",
+            "location": "Greenwood Village",
+            "dates": "2009 - 2014",
+            "description": "Develop Wordpress Themes. Bacon ipsum dolor amet rump
+            andouille strip steak pork loin,
+            frankfurter ground round picanha tail.
+            Tail rump ham hock bacon.Porchetta turkey brisket,
+            ground round bacon chicken
+            venison swine prosciutto.
+            "
+        }
+    ]
+}
 
-$("#workExperience").append(formattedPostion);
+// education object
+var education = {
+    "schools": [{
+        "name": "University of Colorado",
+        "location": "Boulder",
+        "major": ["Information Systems", "Management"],
+        "degree": "Bachelor of Science",
+        //"schoolStart": "1995",
+        "dates": "1995-2000",
+        "url": "http://www.colorado.edu"
+    }, {
+        "name": "RMCAD",
+        "location": "Denver",
+        "major": ["Web Design"],
+        "degree": "Certificate",
+        // "schoolStart": "2008",
+        "dates": "2008 - 2009",
+        "url": "http://www.rmcad.edu"
+    }],
+    "onlineCourses": [{
+        "title": "Javascript",
+        "school": "Udacity",
+        "dates": "2015",
+        "url": "http:www.udacity.com"
+    }, {
+        "title": "HTML/CSS",
+        "school": "Udacity",
+        "dates": "2015",
+        "url": "http:www.udacity.com"
+    }]
+}
 
-console.log(formattedPostion);
+// projects object
+var projects {
+    "projects": [{
+        "title": "About Me",
+        "dates": "2015-2015",
+        "description": "Intro project for Udacity degree. Bacon ipsum dolor
+        amet rump andouille strip steak pork loin,
+        frankfurter ground
+        round picanha tail.Tail rump ham hock bacon.Porchetta turkey
+        brisket,
+        ground round bacon chicken venison swine prosciutto.
+        ",
+        "image": "images/project0.jpg"
+    }, {
+        "title": "Online Resume",
+        "dates": "2015-2015",
+        "description": "First project for Udacity degree. Bacon ipsum dolor
+        amet rump andouille strip steak pork loin,
+        frankfurter ground round
+        picanha tail.Tail rump ham hock bacon.Porchetta turkey brisket,
+        ground round bacon chicken venison swine prosciutto.
+        ",
+        "image": "images/project1.jpg"
+    }]
 
-// education section
-var education =  {};
-
-education["name"] = "University of Colorado";
-education["years"] = "4";
-education["schoolCity"] = "Boulder";
- 
-
-// contact section
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-var formattedGit = HTMLgithub.replace("%data%", bio.contacts.github);
-var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-
-$(header).prepend(formattedRole);
-$(header).prepend(formattedName);
-$(footerContacts).prepend(formattedMobile);
-$(footerContacts).prepend(formattedEmail);
-$(footerContacts).prepend(formattedGit);
-$(footerContacts).prepend(formattedTwitter);
-$(footerContacts).prepend(formattedLocation);
+}
