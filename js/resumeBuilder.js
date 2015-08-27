@@ -2,32 +2,59 @@
 This is empty on purpose! Your code to build the resume will go here.
  */
 
-	var name = "Aaron Schmohe";
-	var role = "Web Developer";
+var header = "#header";
+var main =  "#main";
+var footerContacts = "#footerContacts";
 
-	var formattedName = HTMLheaderName.replace("%data%", name);
+// bio section
+var bio = {
+	"name" : "Aaron Schmohe",
+	"role" : "Web Developer",
+	"contacts" : {
+		"mobile" : "720.934.8439",
+		"email" : "aaron.schmohe@gmail.com",
+		"github" : "schmo-dog",
+		"twitter" : "@AaronSchmohe",
+		"location" : "Denver"
+	},
+"WelcomeMessage" : "lorem ipsum emet etc etc.",
+	skills : ["CSS", "HTML5", "Adobe CC", "JS", "Jquery"],
+	"bioPic" : "images/aaron.jpg"
+};
 
+// work section
+var work = {};
+work.position = "UI Web Developer";
+work.employer = "Healthgrades";
+work.years = 1;
 
-	var formattedRole = HTMLheaderRole.replace("%data%", role);
+var formattedPostion = HTMLworkTitle.replace("%data%", work.position);
 
-	$("#header").prepend(formattedRole);
-	$("#header").prepend(formattedName);
-  
+$("#workExperience").append(formattedPostion);
+
+console.log(formattedPostion);
+
+// education section
+var education =  {};
+
+education["name"] = "University of Colorado";
+education["years"] = "4";
+education["schoolCity"] = "Boulder";
  
- var bio = {
- 	"name" : "Aaron Schmohe",
- 	"role" : "Web Developer",
- 	"contacts" : {
- 		"phone" : "720.934.8439",
- 		"eamil" : "aaron.schmohe@gmail.com"
- 	},
-	"WelcomeMessage" : "lorem ipsum emet etc etc.",
- 	skills : ["CSS", "HTML5", "Adobe CC", "JS", "Jquery"],
- 	"bioPic" : "images/aaron.jpg"
- };
 
- 	var formattedMobile = HTMLmobile .replace("%data%", bio.role);
+// contact section
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+var formattedGit = HTMLgithub.replace("%data%", bio.contacts.github);
+var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 
-//$("#main").append(bio.name);
-
-$("#header").prepend(formattedMobile);
+$(header).prepend(formattedRole);
+$(header).prepend(formattedName);
+$(footerContacts).prepend(formattedMobile);
+$(footerContacts).prepend(formattedEmail);
+$(footerContacts).prepend(formattedGit);
+$(footerContacts).prepend(formattedTwitter);
+$(footerContacts).prepend(formattedLocation);
