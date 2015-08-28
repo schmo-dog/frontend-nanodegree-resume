@@ -19,7 +19,7 @@ var bio = {
         "twitter": "@AaronSchmohe",
         "location": "Denver"
     },
-    "skills": ["CSS", "HTML5", "Adobe CC", "Web Design", "Jquery"]
+    "skills": ["CSS", "HTML5", "Adobe CC", "Web Design", "Poker Man!"]
 }
 
 // work object
@@ -29,11 +29,7 @@ var work = {
             "title": "UI Developer",
             "location": "Denver",
             "dates": "2014 - 2014",
-            "description": "Bacon ipsum dolor amet rump andouille strip steak pork loin,
-            frankfurter ground round picanha tail.Tail rump ham hock bacon.Porchetta
-            turkey brisket,
-            ground round bacon chicken venison swine prosciutto.
-            "
+            "description": "Bacon ipsum dolor amet rump andouille strip steak pork loin"
         },
 
         {
@@ -41,13 +37,7 @@ var work = {
             "title": "Web Developer",
             "location": "Greenwood Village",
             "dates": "2009 - 2014",
-            "description": "Develop Wordpress Themes. Bacon ipsum dolor amet rump
-            andouille strip steak pork loin,
-            frankfurter ground round picanha tail.
-            Tail rump ham hock bacon.Porchetta turkey brisket,
-            ground round bacon chicken
-            venison swine prosciutto.
-            "
+            "description": "Develop Wordpress Themes. Bacon ipsum dolor amet rump"
         }
     ]
 }
@@ -85,28 +75,36 @@ var education = {
 }
 
 // projects object
-var projects {
+var projects = {
     "projects": [{
         "title": "About Me",
         "dates": "2015-2015",
-        "description": "Intro project for Udacity degree. Bacon ipsum dolor
-        amet rump andouille strip steak pork loin,
-        frankfurter ground
-        round picanha tail.Tail rump ham hock bacon.Porchetta turkey
-        brisket,
-        ground round bacon chicken venison swine prosciutto.
-        ",
+        "description": "Intro project for Udacity degree. Bacon ipsum dolorb amet rump",
         "image": "images/project0.jpg"
     }, {
         "title": "Online Resume",
         "dates": "2015-2015",
-        "description": "First project for Udacity degree. Bacon ipsum dolor
-        amet rump andouille strip steak pork loin,
-        frankfurter ground round
-        picanha tail.Tail rump ham hock bacon.Porchetta turkey brisket,
-        ground round bacon chicken venison swine prosciutto.
-        ",
+        "description": "First project for Udacity degree. Bacon ipsum dolor",
         "image": "images/project1.jpg"
     }]
 
 }
+
+if (bio.skills.length > 0) {
+    $("#header").append(HTMLskillsStart);
+
+    var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+    $("#skills").append(formattedSkill);
+
+    var formattedSkills = HTMLskills.replace('%data%', bio.skills[1]);
+    $("#skills").append(formattedSkills);
+
+    var formattedSkills = HTMLskills.replace('%data%', bio.skills[2]);
+    $("#skills").append(formattedSkills);
+
+    var formattedSkills = HTMLskills.replace('%data%', bio.skills[3]);
+    $("#skills").append(formattedSkills);
+
+    var formattedSkills = HTMLskills.replace('%data%', bio.skills[4]);
+    $("#skills").append(formattedSkills);
+    }
