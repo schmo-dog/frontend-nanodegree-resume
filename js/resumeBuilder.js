@@ -11,7 +11,7 @@ var footerContacts = "#footerContacts";
 var bio = {
     "name": "Aaron Schmohe",
     "role": "Web Developer",
-    "WelcomeMessage": "lorem ipsum emet etc etc.",
+    "WelcomeMessage": "Welcome emet etc etc Bacon ipsum dolor amet rump andouille strip steak pork loin",
     "contacts": {
         "mobile": "720.934.8439",
         "email": "aaron.schmohe@gmail.com",
@@ -19,8 +19,58 @@ var bio = {
         "twitter": "@AaronSchmohe",
         "location": "Denver"
     },
-    "skills": ["CSS", "HTML5", "Adobe CC", "Web Design", "Poker Man!"]
+    "skills": ["CSS", "HTML5", "Adobe CC", "Web Design", "Poker Man!"],
+    "bioPic": "images/fry.jpg"
+
 }
+
+bio.display = function() {
+
+    var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
+    console.log(formattedRole);
+    $("#header").prepend(formattedRole);
+
+    var formattedHeaderName = HTMLheaderName.replace('%data%', bio.name);
+    $("#header").prepend(formattedHeaderName);
+
+    var formattedWelcome = HTMLwelcomeMsg.replace('%data%', bio.WelcomeMessage);
+    $("#header").append(formattedWelcome);
+
+    if (bio.skills.length > 0) {
+        $("#header").append(HTMLskillsStart);
+
+        for (skill in bio.skills) {
+            var formattedSkills = HTMLskills.replace("%data%", bio.skills[skill]);
+            $("#skills").append(formattedSkills);
+        }
+    }
+
+    var formattedBioPic = HTMLbioPic.replace('%data%', bio.bioPic);
+    $("#header").append(formattedBioPic);
+
+
+
+
+
+
+
+    // var formattedSkills = HTMLskills.replace("%data%", bio.skills[0]);
+    // $("#skills").append(formattedSkill);
+
+    // var formattedSkills = HTMLskills.replace('%data%', bio.skills[1]);
+    // $("#skills").append(formattedSkills);
+
+    // var formattedSkills = HTMLskills.replace('%data%', bio.skills[2]);
+    // $("#skills").append(formattedSkills);
+
+    // var formattedSkills = HTMLskills.replace('%data%', bio.skills[3]);
+    // $("#skills").append(formattedSkills);
+
+    // var formattedSkills = HTMLskills.replace('%data%', bio.skills[4]);
+    // $("#skills").append(formattedSkills);
+
+}
+bio.display();
 
 // work object
 var work = {
@@ -80,31 +130,81 @@ var projects = {
         "title": "About Me",
         "dates": "2015-2015",
         "description": "Intro project for Udacity degree. Bacon ipsum dolorb amet rump",
-        "image": "images/project0.jpg"
+        "images": ["images/sample.gif"]
     }, {
         "title": "Online Resume",
         "dates": "2015-2015",
         "description": "First project for Udacity degree. Bacon ipsum dolor",
-        "image": "images/project1.jpg"
+        "images": ["images/sample.gif", "images/sample.gif"]
     }]
-
 }
 
-if (bio.skills.length > 0) {
-    $("#header").append(HTMLskillsStart);
 
-    var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-    $("#skills").append(formattedSkill);
+projects.display = function() {
+    for (project in projects.projects) {
+        $("#projects").append(HTMLprojectStart);
 
-    var formattedSkills = HTMLskills.replace('%data%', bio.skills[1]);
-    $("#skills").append(formattedSkills);
+        var formattedProjectTitle = HTMLprojectTitle.replace('%data%', projects.projects[project].title);
+        $(".project-entry:last").append(formattedProjectTitle);
 
-    var formattedSkills = HTMLskills.replace('%data%', bio.skills[2]);
-    $("#skills").append(formattedSkills);
+        var formattedprojectDates = HTMLprojectDates.replace('%data%', projects.projects[project].dates);
+        $(".project-entry:last").append(formattedprojectDates);
 
-    var formattedSkills = HTMLskills.replace('%data%', bio.skills[3]);
-    $("#skills").append(formattedSkills);
+        var formattedProjectDescription = HTMLprojectDescription.replace('%data%', projects.projects[project].description);
+        $(".project-entry:last").append(formattedProjectDescription);
 
-    var formattedSkills = HTMLskills.replace('%data%', bio.skills[4]);
-    $("#skills").append(formattedSkills);
+        if (projects.projects[project].images.length > 0) {
+            for (image in projects.projects[project].images) {
+                var formattedProjectImage = HTMLprojectImage.replace('%data%', projects.projects[project].images[image]);
+                $(".project-entry:last").append(formattedProjectImage);
+
+            }
+        }
     }
+
+};
+projects.display();
+
+
+
+
+
+// Work items
+function displayWork() {
+    for (job in work.jobs) {
+        $("#workExperience").append(HTMLworkStart);
+
+        var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
+        var formattedWorktitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
+        var formattedEmployerTitle = formattedEmployer + formattedWorktitle;
+        $(".work-entry:last").append(formattedEmployerTitle);
+
+
+
+        var formatLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
+        $(".work-entry:last").append(formatLocation);
+        var formatDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
+        $(".work-entry:last").append(formatDates);
+
+        var formatDescription = HTMLworkDescription.replace('%data%', work.jobs[job].description);
+        $(".work-entry:last").append(formatDescription);
+
+    }
+};
+displayWork();
+
+function inName(name) {
+    name = name.trim().split(" ");
+    //console.log(name);
+    name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
+    //console.log(name[0]);
+
+    name[1] = name[1].toUpperCase();
+    //console.log(name[1]);
+
+    return name[0] + " " + name[1];
+};
+
+inName("AarOn Schmohe");
+
+//$("#main").append(internationalizeButton);
