@@ -1,11 +1,11 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
  */
-
 // page variables
 var header = "#header";
 var main = "#main";
 var footerContacts = "#footerContacts";
+var contacts = ".contacts"
 
 // bio object
 var bio = {
@@ -21,23 +21,25 @@ var bio = {
     },
     "skills": ["CSS", "HTML5", "Adobe CC", "Web Design", "Poker Man!"],
     "bioPic": "images/fry.jpg"
-
 }
 
 bio.display = function() {
 
     var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
     console.log(formattedRole);
-    $("#header").prepend(formattedRole);
+    $(header).prepend(formattedRole);
 
     var formattedHeaderName = HTMLheaderName.replace('%data%', bio.name);
-    $("#header").prepend(formattedHeaderName);
+    $(header).prepend(formattedHeaderName);
+
+    var formattedBioPic = HTMLbioPic.replace('%data%', bio.bioPic);
+    $(header).append(formattedBioPic);
 
     var formattedWelcome = HTMLwelcomeMsg.replace('%data%', bio.WelcomeMessage);
-    $("#header").append(formattedWelcome);
+    $(header).append(formattedWelcome);
 
     if (bio.skills.length > 0) {
-        $("#header").append(HTMLskillsStart);
+        $(header).append(HTMLskillsStart);
 
         for (skill in bio.skills) {
             var formattedSkills = HTMLskills.replace("%data%", bio.skills[skill]);
@@ -45,29 +47,20 @@ bio.display = function() {
         }
     }
 
-    var formattedBioPic = HTMLbioPic.replace('%data%', bio.bioPic);
-    $("#header").append(formattedBioPic);
+    var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
+    $(contacts).append(formattedMobile);
 
+    var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
+    $(contacts).append(formattedEmail);
 
+    var formattedGit = HTMLgithub.replace('%data%', bio.contacts.github);
+    $(contacts).append(formattedGit);
 
+    var formattedTwitter = HTMLtwitter.replace('%data%', bio.contacts.twitter);
+    $(contacts).append(formattedTwitter);
 
-
-
-
-    // var formattedSkills = HTMLskills.replace("%data%", bio.skills[0]);
-    // $("#skills").append(formattedSkill);
-
-    // var formattedSkills = HTMLskills.replace('%data%', bio.skills[1]);
-    // $("#skills").append(formattedSkills);
-
-    // var formattedSkills = HTMLskills.replace('%data%', bio.skills[2]);
-    // $("#skills").append(formattedSkills);
-
-    // var formattedSkills = HTMLskills.replace('%data%', bio.skills[3]);
-    // $("#skills").append(formattedSkills);
-
-    // var formattedSkills = HTMLskills.replace('%data%', bio.skills[4]);
-    // $("#skills").append(formattedSkills);
+    var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
+    $(contacts).append(formattedLocation);
 
 }
 bio.display();
@@ -99,7 +92,6 @@ var education = {
         "location": "Boulder",
         "major": ["Information Systems", "Management"],
         "degree": "Bachelor of Science",
-        //"schoolStart": "1995",
         "dates": "1995-2000",
         "url": "http://www.colorado.edu"
     }, {
@@ -107,7 +99,6 @@ var education = {
         "location": "Denver",
         "major": ["Web Design"],
         "degree": "Certificate",
-        // "schoolStart": "2008",
         "dates": "2008 - 2009",
         "url": "http://www.rmcad.edu"
     }],
@@ -166,9 +157,6 @@ projects.display = function() {
 projects.display();
 
 
-
-
-
 // Work items
 function displayWork() {
     for (job in work.jobs) {
@@ -206,5 +194,4 @@ function inName(name) {
 };
 
 inName("AarOn Schmohe");
-
 //$("#main").append(internationalizeButton);
