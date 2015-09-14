@@ -85,6 +85,27 @@ var work = {
     ]
 }
 
+// Work items
+work.display = function () {
+    for (job in work.jobs) {
+        $("#workExperience").append(HTMLworkStart);
+
+        var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
+        var formattedWorktitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
+        var formattedEmployerTitle = formattedEmployer + formattedWorktitle;
+        $(".work-entry:last").append(formattedEmployerTitle);
+
+        var formatLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
+        $(".work-entry:last").append(formatLocation);
+        var formatDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
+        $(".work-entry:last").append(formatDates);
+
+        var formatDescription = HTMLworkDescription.replace('%data%', work.jobs[job].description);
+        $(".work-entry:last").append(formatDescription);
+    }
+};
+work.display();
+
 // education object
 var education = {
     "schools": [{
@@ -114,6 +135,15 @@ var education = {
         "url": "http:www.udacity.com"
     }]
 }
+
+education.display = function() {
+    for (school in education.schools) {
+        var formattedSchoolName = HTMLschoolName.replace('%data%', education.schools[school].name);
+        $(".project-entry:last").append(formattedSchoolName);
+
+    }
+
+};
 
 // projects object
 var projects = {
@@ -157,29 +187,7 @@ projects.display = function() {
 projects.display();
 
 
-// Work items
-function displayWork() {
-    for (job in work.jobs) {
-        $("#workExperience").append(HTMLworkStart);
 
-        var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
-        var formattedWorktitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
-        var formattedEmployerTitle = formattedEmployer + formattedWorktitle;
-        $(".work-entry:last").append(formattedEmployerTitle);
-
-
-
-        var formatLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
-        $(".work-entry:last").append(formatLocation);
-        var formatDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
-        $(".work-entry:last").append(formatDates);
-
-        var formatDescription = HTMLworkDescription.replace('%data%', work.jobs[job].description);
-        $(".work-entry:last").append(formatDescription);
-
-    }
-};
-displayWork();
 
 function inName(name) {
     name = name.trim().split(" ");
